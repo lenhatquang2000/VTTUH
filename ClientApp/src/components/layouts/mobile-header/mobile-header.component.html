@@ -1,0 +1,69 @@
+
+<!-- Mobile Menu Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold vtth-text-danger" id="mobileMenuLabel">
+            <i class="bi bi-hospital me-2"></i>VTTU Hospital
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Book Appointment -->
+        <div class="mb-3">
+            <a href="/dat-so-kham" class="btn btn-primary w-100 vtth-bg-danger vtth-border-danger">
+                <i class="bi bi-calendar-check me-2"></i>Đặt số khám bệnh
+            </a>
+        </div>
+        
+        <!-- Search -->
+        <form class="mb-3" role="search">
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+                <button class="btn btn-outline-secondary" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
+        
+        <!-- Address & Contact -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex align-items-start mb-3">
+                    <i class="bi bi-geo-alt-fill vtth-text-danger fs-5 me-2 mt-1"></i>
+                    <div>
+                        <div class="fw-bold text-dark mb-1">Địa chỉ</div>
+                        <div class="text-muted small">Quốc lộ 1A, Tân Hưng, Cái Răng, Cần Thơ</div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-telephone-fill vtth-text-danger fs-5 me-2"></i>
+                    <div>
+                        <div class="fw-bold text-dark mb-1">Hotline</div>
+                        <a href="tel:02933953888" class="fw-semibold text-decoration-none text-dark">
+                            0293 3953 888
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Q&A -->
+        <div class="mb-3">
+            <a href="/hoi-dap" class="btn btn-outline-primary w-100 vtth-border-danger vtth-text-danger">
+                <i class="bi bi-question-circle me-2"></i>Hỏi đáp
+            </a>
+        </div>
+        
+        <!-- Language Selector -->
+        <div class="dropdown">
+            <button class="btn btn-light w-100 vtth-border-danger vtth-text-danger d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span><i class="bi bi-globe me-2"></i>Ngôn ngữ</span>
+                <i class="bi bi-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu w-100">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-flag me-2"></i>Tiếng Việt</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-flag me-2"></i>English</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

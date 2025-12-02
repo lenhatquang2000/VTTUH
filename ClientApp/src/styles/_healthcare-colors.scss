@@ -1,0 +1,64 @@
+// Healthcare Color System
+$vtth-primary: #1A73E8;
+$vtth-primary-hover: darken($vtth-primary, 10%);
+
+$vtth-secondary: #009CA6;
+$vtth-secondary-hover: darken($vtth-secondary, 10%);
+
+$vtth-success: #4CAF50;
+$vtth-success-hover: darken($vtth-success, 10%);
+
+$vtth-warning: #FFB300;
+$vtth-warning-hover: darken($vtth-warning, 10%);
+
+$vtth-danger: #680102;
+$vtth-danger-hover: darken($vtth-danger, 10%);
+
+$vtth-info: #03A9F4;
+$vtth-info-hover: darken($vtth-info, 10%);
+
+// Background utilities
+.vtth-bg-primary { background-color: $vtth-primary !important; }
+.vtth-bg-primary-hover:hover { background-color: $vtth-primary-hover !important; }
+
+.vtth-bg-secondary { background-color: $vtth-secondary !important; }
+.vtth-bg-secondary-hover:hover { background-color: $vtth-secondary-hover !important; }
+
+.vtth-bg-success { background-color: $vtth-success !important; }
+.vtth-bg-success-hover:hover { background-color: $vtth-success-hover !important; }
+
+.vtth-bg-warning { background-color: $vtth-warning !important; }
+.vtth-bg-warning-hover:hover { background-color: $vtth-warning-hover !important; }
+
+.vtth-bg-danger { background-color: $vtth-danger !important; }
+.vtth-bg-danger-hover:hover { background-color: $vtth-danger-hover !important; }
+
+.vtth-bg-info { background-color: $vtth-info !important; }
+.vtth-bg-info-hover:hover { background-color: $vtth-info-hover !important; }
+
+// Text utilities
+.vtth-text-primary { color: $vtth-primary !important; }
+.vtth-text-primary-hover:hover { color: $vtth-primary-hover !important; }
+
+.vtth-text-secondary { color: $vtth-secondary !important; }
+.vtth-text-secondary-hover:hover { color: $vtth-secondary-hover !important; }
+
+.vtth-text-success { color: $vtth-success !important; }
+.vtth-text-success-hover:hover { color: $vtth-success-hover !important; }
+
+.vtth-text-warning { color: $vtth-warning !important; }
+.vtth-text-warning-hover:hover { color: $vtth-warning-hover !important; }
+
+.vtth-text-danger { color: $vtth-danger !important; }
+.vtth-text-danger-hover:hover { color: $vtth-danger-hover !important; }
+
+.vtth-text-info { color: $vtth-info !important; }
+.vtth-text-info-hover:hover { color: $vtth-info-hover !important; }
+
+// Border utilities
+.vtth-border-primary { border-color: $vtth-primary !important; }
+.vtth-border-secondary { border-color: $vtth-secondary !important; }
+.vtth-border-success { border-color: $vtth-success !important; }
+.vtth-border-warning { border-color: $vtth-warning !important; }
+.vtth-border-danger { border-color: $vtth-danger !important; }
+.vtth-border-info { border-color: $vtth-info !important; }
