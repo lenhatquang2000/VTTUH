@@ -1,14 +1,127 @@
-<div class="footer-container">
-    <div class="footer-content">
-        <div class="footer-content-left">
-            <h1>VTTH</h1>
+<div class="footer-container bg-white shadow-lg border-top vtth-border-danger">
+    <!-- Footer Top Section -->
+    <div class="footer-top py-4 px-3">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <!-- Left: Logo, name, slogan -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <!-- Logo -->
+                        <div class="rounded-2 overflow-hidden shadow-sm d-none d-sm-block me-3">
+                            <img src="assets/imgs/vtthbanner.png" alt="VTTU Hospital Logo" 
+                                 class="p-2 img-fluid h-100 w-auto d-block vtth-bg-danger shadow-sm"
+                                 style="max-height: 80px;">
+                        </div>
+                        <!-- Name and slogan -->
+                        <div>
+                            <div class="px-1 mb-1 border-bottom vtth-border-danger rounded-top d-none d-lg-block">
+                                <div class="fw-bold fs-6 fs-md-5 text-uppercase vtth-text-danger">Bệnh viện Đại học Võ Trường Toản</div>
+                                <div class="fw-semibold d-none d-md-block">VTTU Hospital</div>
+                            </div>
+                            <div class="fst-italic fw-bold vtth-text-danger p-1 border-bottom vtth-border-danger rounded-2" style="font-size: .82rem;">
+                                "Y đức làm nền tảng - Bệnh nhân làm trung tâm"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: Quick Links -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h5 class="fw-bold vtth-text-danger mb-3">Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/" class="text-decoration-none text-dark hover-text-danger">
+                                <i class="bi bi-house-door me-2"></i>Trang chủ
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/dat-so-kham" class="text-decoration-none text-dark hover-text-danger">
+                                <i class="bi bi-calendar-check me-2"></i>Đặt lịch khám bệnh
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/intro" class="text-decoration-none text-dark hover-text-danger">
+                                <i class="bi bi-info-circle me-2"></i>Giới thiệu
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/news" class="text-decoration-none text-dark hover-text-danger">
+                                <i class="bi bi-newspaper me-2"></i>Tin tức
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/hoi-dap" class="text-decoration-none text-dark hover-text-danger">
+                                <i class="bi bi-question-circle me-2"></i>Hỏi đáp
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right: Contact Info -->
+                <div class="col-12 col-md-12 col-lg-4">
+                    <h5 class="fw-bold vtth-text-danger mb-3">Thông tin liên hệ</h5>
+                    <div class="d-flex flex-column gap-3">
+                        <!-- Address -->
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-geo-alt-fill vtth-text-danger fs-5 me-2 mt-1"></i>
+                            <div>
+                                <div class="fw-semibold text-dark mb-1">Địa chỉ</div>
+                                <div class="text-muted">Quốc lộ 1A, Tân Hưng, Cái Răng, Cần Thơ</div>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-telephone-fill vtth-text-danger fs-5 me-2"></i>
+                            <div>
+                                <div class="fw-semibold text-dark mb-1">Hotline</div>
+                                <a href="tel:02933953888" class="fw-semibold text-decoration-none text-dark hover-text-danger">
+                                    0293 3953 888
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-envelope-fill vtth-text-danger fs-5 me-2"></i>
+                            <div>
+                                <div class="fw-semibold text-dark mb-1">Email</div>
+                                <a href="mailto:info@vtth.edu.vn" class="fw-semibold text-decoration-none text-dark hover-text-danger">
+                                    info@vtth.edu.vn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-content-right">
-            <ul>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-            </ul>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom bg-light border-top vtth-border-danger py-3 px-3">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <span class="text-muted">
+                        © {{ currentYear }} Bệnh viện Đại học Võ Trường Toản. Tất cả quyền được bảo lưu.
+                    </span>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-end">
+                    <!-- Social Media Links -->
+                    <div class="d-flex justify-content-center justify-content-md-end align-items-center gap-3">
+                        <a href="#" class="text-decoration-none vtth-text-danger hover-text-danger" title="Facebook">
+                            <i class="bi bi-facebook fs-5"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none vtth-text-danger hover-text-danger" title="Zalo">
+                            <i class="bi bi-chat-dots fs-5"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none vtth-text-danger hover-text-danger" title="YouTube">
+                            <i class="bi bi-youtube fs-5"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none vtth-text-danger hover-text-danger" title="Website">
+                            <i class="bi bi-globe fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

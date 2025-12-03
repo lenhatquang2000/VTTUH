@@ -103,9 +103,10 @@ $vtth-info-hover: darken($vtth-info, 10%);
   
     &.active {
       background-color: $color; // nền màu khi active
-      color: #fff;              // chữ trắng
+      color: white;              // chữ trắng
       border-color: $color;
       box-shadow: 0 2px 8px rgba($color, 0.3);
+      border: 2px solid white;
     }
   
     &:active {

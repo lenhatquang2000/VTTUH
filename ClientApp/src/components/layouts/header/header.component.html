@@ -1,71 +1,129 @@
-<div class="home-container d-flex justify-content-between align-items-center py-2 px-3 bg-white shadow-lg">
-    <!-- Left: Logo, name, slogan -->
-    <div class="d-flex align-items-center flex-grow-1">
-        <!-- Logo -->
-        <div class="rounded-2 overflow-hidden shadow-sm d-none d-sm-block ">
-            <img src="assets/imgs/vtthbanner.png" alt="VTTU Hospital Logo" class="p-2 img-fluid h-100 w-auto d-block vtth-bg-danger shadow-sm">
-        </div>
-        <!-- Name and slogan -->
-        <div class="ms-2 ms-md-3 ">
-            <div class="px-1 mb-1 border-bottom vtth-border-danger rounded-top  d-none d-lg-block">
-                <div class="fw-bold fs-6 fs-md-5 text-uppercase vtth-text-danger">Bệnh viện Đại học Võ Trường Toản</div>
-                <div class="fw-semibold d-none d-md-block">VTTU Hospital</div>
-            </div>
-            <div class=" fst-italic fw-bold vtth-text-danger vtth-primary p-1 border-bottom vtth-border-danger rounded-2 mh-100" style="font-size: .82rem;">
-                "Y đức làm nền tảng - Bệnh nhân làm trung tâm"
-            </div>
-        </div>
-    </div>
+<style>
+    /* Logo responsive */
+    .home-logo img {
+      height: 60px;
+      width: auto;
+    }
     
-    <!-- Hamburger Button (Mobile Only) -->
-    <button class="btn d-md-none ms-2 border-bottom  vtth-border-danger border-top-0 border-start-0 border-end-0 mh-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+    /* Slogan nhỏ trên mobile */
+    .home-slogan {
+      font-size: 0.75rem;
+    }
+    
+    @media (min-width: 768px) {
+      .home-slogan {
+        font-size: 0.82rem;
+      }
+    }
+    
+    /* Right actions responsive */
+    .header-actions {
+      gap: 1rem;
+    }
+    
+    .header-actions .address-box {
+      min-width: 180px;
+    }
+    
+    @media (min-width: 992px) {
+      .header-actions .address-box {
+        min-width: 210px;
+      }
+    }
+    
+    /* Q&A buttons stacked */
+    .qna-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    /* Mobile hamburger */
+    .hamburger-btn {
+      border-bottom: 1px solid #d32f2f;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+    
+    /* Adjust flex-wrap for smaller screens */
+    .home-container {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    </style>
+    
+    <div class="home-container d-flex justify-content-between align-items-center py-2 px-3 bg-light shadow-lg">
+      
+      <!-- Left: Logo + Name + Slogan -->
+      <div class="d-flex align-items-center flex-grow-1">
+        <div class="home-logo rounded-2 overflow-hidden shadow-sm d-none d-sm-block vtth-bg-danger p-2">
+          <img src="assets/imgs/vtthbanner.png" alt="VTTU Hospital Logo" class="img-fluid">
+        </div>
+        <div class="ms-2 ms-md-3">
+          <div class="px-1 mb-1 rounded-top d-none d-lg-block">
+            <div class="fw-bold fs-6 fs-md-5 text-uppercase vtth-text-danger">Bệnh viện Đại học Võ Trường Toản</div>
+          </div>
+          <div class="fst-italic fw-bold vtth-text-danger vtth-primary p-1 border-bottom vtth-border-danger rounded-2 home-slogan">
+            "Y đức làm nền tảng - Bệnh nhân làm trung tâm"
+          </div>
+        </div>
+      </div>
+    
+      <!-- Hamburger Mobile Only -->
+      <button class="btn d-md-none ms-2 hamburger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
         <i class="bi bi-list fs-3"></i>
-    </button>
+      </button>
     
-    <!-- Right: Actions and info (Desktop Only) -->
-    <div class="d-none d-md-flex align-items-center flex-wrap gap-3">
-        <!-- Book appointment -->
-        <div class="flex-column">
-            <a href="/dat-so-kham" class="btn btn-primary me-2 vtth-bg-danger vtth-border-danger">
-                Đặt số khám bệnh
-            </a>
-        </div>
+      <!-- Right Actions Desktop Only -->
+      <div class="d-none d-md-flex align-items-center flex-wrap header-actions">
+        
+        <!-- Đặt số khám bệnh -->
+        <a href="/dat-so-kham" class="btn btn-primary me-2 vtth-bg-danger vtth-border-danger">
+          Đặt số khám bệnh
+        </a>
+    
         <!-- Search -->
         <form class="d-flex align-items-center me-2" role="search" style="min-width: 150px;">
-            <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
-            <button class="btn btn-outline-secondary btn-sm ms-1" type="submit">
-                <i class="bi bi-search"></i>
-            </button>
+          <input class="form-control form-control-sm" type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+          <button class="btn btn-outline-secondary btn-sm ms-1" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
         </form>
+    
         <!-- Address -->
-        <div class="d-flex flex-column justify-content-center align-items-start me-3 p-2 rounded-3 shadow-sm" style="min-width: 210px;">
-            <div class="d-flex align-items-center mb-2">
-                <i class="bi bi-geo-alt-fill vtth-text-danger fs-5 me-2"></i>
-                <span class="fw-bold text-dark">Quốc lộ 1A, Tân Hưng, Cái Răng, Cần Thơ</span>
-            </div>
-            <div class="d-flex align-items-center">
-                <i class="bi bi-telephone-fill vtth-text-danger fs-5 me-2"></i>
-                <a href="tel:02933953888" class="fw-semibold text-decoration-none text-dark hover-text-primary">
-                    0293 3953 888
-                </a>
-            </div>
-        </div>
-        <!-- Q&A -->
-        <div class="flex-column bg-light shadow-sm">
-            <a href="/hoi-dap" class="btn btn-outline-primary btn-sm vtth-border-danger vtth-text-danger w-100 shadow-lg " title="Hỏi đáp">
-                <i class="bi bi-question-circle"></i>
+        <div class="d-flex flex-column justify-content-center align-items-start p-2 rounded-3 shadow-sm address-box bg-light">
+          <div class="d-flex align-items-center mb-2">
+            <i class="bi bi-geo-alt-fill vtth-text-danger fs-5 me-2"></i>
+            <span class="fw-bold text-dark">Quốc lộ 1A, Tân Hưng, Cái Răng, Cần Thơ</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-telephone-fill vtth-text-danger fs-5 me-2"></i>
+            <a href="tel:02933953888" class="fw-semibold text-decoration-none text-dark hover-text-primary">
+              0293 3953 888
             </a>
-            <div class="dropdown mt-2 ">
-                <button class="btn btn-light vtth-border-danger btn-sm d-flex align-items-center vtth-text-danger shadow-lg" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Ngôn ngữ" style="--bs-dropdown-toggle-btn-indicator: none;">
-                    <i class="bi bi-globe"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
-                    <li><a class="dropdown-item" href="#">English</a></li>
-                </ul>
-            </div>
-        </div> 
+          </div>
+        </div>
+    
+        <!-- Q&A + Language -->
+        <div class="qna-box">
+          <a href="/hoi-dap" class="btn btn-outline-primary btn-sm vtth-border-danger vtth-text-danger w-100 shadow-sm" title="Hỏi đáp">
+            <i class="bi bi-question-circle"></i>
+          </a>
+          <div class="dropdown mt-2">
+            <button class="btn btn-light vtth-border-danger btn-sm d-flex align-items-center vtth-text-danger shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Ngôn ngữ" style="--bs-dropdown-toggle-btn-indicator: none;">
+              <i class="bi bi-globe"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
+              <li><a class="dropdown-item" href="#">English</a></li>
+            </ul>
+          </div>
+        </div>
+    
+      </div>
     </div>
-</div>
-
-<mobile-header></mobile-header>
+    
+    <!-- Mobile header component -->
+    <mobile-header></mobile-header>
+    

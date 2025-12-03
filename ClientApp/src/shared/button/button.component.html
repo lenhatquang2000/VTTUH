@@ -1,0 +1,10 @@
+<button
+  type="button"
+  (click)="onClick()"
+  [class.active]="active"
+  [ngClass]="className"
+  class="vtth-btn vtth-btn-red rounded-pill shadow-sm text-center sub-header-btn w-100 border border-white">
+
+  <i *ngIf="icon" class="bi" [ngClass]="icon"></i>
+  {{ label }}
+</button>

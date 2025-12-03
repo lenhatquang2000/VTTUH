@@ -19,7 +19,8 @@ export class SubHeaderComponent implements OnInit, OnDestroy {
     private resizeSubscription?: Subscription;
     
     menuItems = [
-        { id: 'intro', label: 'Giới thiệu', route: '/intro' },
+        { id: 'home', label: 'Trang chủ', route: '/' },
+        { id: 'intro', label: 'Giới thiệu', route: '/about-us' },
         { id: 'experts', label: 'Đội ngũ chuyên gia', route: '/experts' },
         { id: 'appointment', label: 'Đặt lịch khám bệnh', route: '/appointment' },
         { id: 'news', label: 'Tin tức', route: '/news' }
@@ -74,18 +75,15 @@ export class SubHeaderComponent implements OnInit, OnDestroy {
     }
 
     onMenuItemClick(item: { id?: string; route?: string }): void {
-        // Set active menu item
+        // Set active item
         if (item.id) {
-            this.activeMenuItem = this.activeMenuItem === item.id ? null : item.id;
+            this.activeMenuItem = item.id;
         }
-        
+    
         this.closeDropdown();
-        
-        // Navigate if route exists
+    
         if (item.route) {
-            this.router.navigate([item.route]).catch(err => {
-                console.warn('Navigation failed:', err);
-            });
+            this.router.navigate([item.route]);
         }
     }
     
