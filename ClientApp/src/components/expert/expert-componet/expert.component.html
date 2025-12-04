@@ -1,0 +1,177 @@
+<section class="expert-section">
+  <!-- Header -->
+  <div class="expert-header py-4 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge bg-danger mb-3 fs-6">
+          <i class="bi bi-heart-pulse me-2"></i>Đội ngũ chuyên gia
+        </span>
+        <h2 class="fw-bold">Những Bác Sĩ Hàng Đầu</h2>
+        <p class="text-secondary">Kinh nghiệm, chuyên môn, và tận tâm với từng bệnh nhân</p>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="row gy-3 align-items-center mb-4">
+        <div class="col-md-6">
+          <div class="input-group shadow-sm">
+            <span class="input-group-text bg-white border-end-0"
+              ><i class="bi bi-search text-secondary"></i
+            ></span>
+            <input
+              type="text"
+              placeholder="Tìm bác sĩ, chuyên khoa..."
+              (input)="onSearch($event.target.value)"
+              [value]="searchText"
+              class="form-control border-start-0"
+              aria-label="Tìm bác sĩ, chuyên khoa"
+            />
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div class="btn-group" role="group" aria-label="Lọc theo chuyên khoa">
+            <button
+              type="button"
+              class="vtth-btn vtth-btn-red rounded-2"
+              [class.active]="selectedFilter === 'all'"
+              (click)="onFilterChange('all')"
+            >
+              Tất cả
+            </button>
+          </div>
+        </div>
+        <div>
+          <button
+            *ngFor="let specialty of specialties"
+            type="button"
+            class="vtth-btn vtth-btn-red rounded-pill me-2"
+            [class.active]="selectedFilter === specialty"
+            (click)="onFilterChange(specialty)"
+          >
+            {{ specialty }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experts Grid -->
+  <div class="container experts-grid-wrapper my-4">
+    <div class="row g-4">
+      <div *ngFor="let expert of filteredExperts" class="col-12 col-sm-6 col-lg-4" [@slideInOut]>
+        <div
+          class="card h-100 shadow hover-shadow-sm expert-card border-0"
+          (click)="selectExpert(expert)"
+          [class.border-primary]="selectedExpert?.id === expert.id"
+          [class.expanded]="selectedExpert?.id === expert.id"
+          style="cursor: pointer"
+        >
+          <!-- Avatar Section -->
+          <div
+            class="card-img-top d-flex flex-column align-items-center position-relative pt-4 pb-2 bg-white border-bottom"
+          >
+            <img
+              [src]="expert.avatar"
+              [alt]="expert.name"
+              class="rounded-circle shadow"
+              width="96"
+              height="96"
+              style="object-fit: cover"
+            />
+            <div
+              class="position-absolute top-0 end-0 translate-middle mt-3 me-3 badge bg-warning text-dark fs-6 px-2 py-1"
+              style="z-index: 1"
+            >
+              <i class="bi bi-star-fill"></i>
+              {{ expert.rating }}
+            </div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="card-body">
+            <h5 class="card-title mb-2">{{ expert.name }}</h5>
+            <div class="mb-2 d-flex flex-wrap align-items-center gap-2">
+              <span [class]="'badge ' + getSpecialtyClass(expert.specialty)">
+                {{ expert.specialty }}
+              </span>
+              <span class="text-muted small">
+                <i class="bi bi-person-badge me-1"></i>{{ expert.position }}
+              </span>
+            </div>
+            <div class="mb-2 text-secondary small">
+              <i class="bi bi-briefcase me-1"></i>
+              {{ expert.experience }} năm kinh nghiệm
+            </div>
+            <p class="card-text mb-2 text-truncate-2">
+              {{ expert.description }}
+            </p>
+
+            <!-- Expertise -->
+            <div class="mb-2">
+              <span
+                *ngFor="let skill of expert.expertise"
+                class="badge bg-light text-primary me-1 mb-1 border"
+              >
+                {{ skill }}
+              </span>
+            </div>
+
+            <!-- Reviews -->
+            <div class="text-muted small">
+              <i class="bi bi-chat-left-dots me-1"></i>
+              {{ expert.reviews }} đánh giá
+            </div>
+          </div>
+
+          <!-- Expanded Contact Section -->
+          <div class="card-footer bg-light border-0 pt-0" *ngIf="selectedExpert?.id === expert.id">
+            <hr class="my-2" />
+            <div class="d-flex justify-content-between flex-wrap gap-2">
+              <a
+                *ngIf="expert.email"
+                [href]="'mailto:' + expert.email"
+                class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1 flex-grow-1"
+                title="Gửi email"
+              >
+                <i class="bi bi-envelope"></i>
+                <span>Email</span>
+              </a>
+              <a
+                *ngIf="expert.phone"
+                [href]="'tel:' + expert.phone"
+                class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 flex-grow-1"
+                title="Gọi điện"
+              >
+                <i class="bi bi-telephone"></i>
+                <span>Gọi</span>
+              </a>
+              <a
+                *ngIf="expert.linkedin"
+                [href]="expert.linkedin"
+                target="_blank"
+                class="btn btn-outline-info btn-sm d-flex align-items-center gap-1 flex-grow-1"
+                title="LinkedIn"
+              >
+                <i class="bi bi-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm d-flex align-items-center gap-1 flex-grow-1"
+                title="Đặt lịch"
+              >
+                <i class="bi bi-calendar-check"></i>
+                <span>Đặt lịch</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredExperts.length === 0" class="text-center py-5">
+      <i class="bi bi-search display-4 text-secondary mb-2"></i>
+      <p class="text-muted fs-5">Không tìm thấy bác sĩ phù hợp</p>
+    </div>
+  </div>
+</section>
