@@ -14,7 +14,6 @@ RUN dotnet restore "./VTTH.csproj"
 # Copy lại chỉ những folders thực sự cần thiết
 COPY ./wwwroot ./wwwroot
 COPY ./Program.cs ./
-COPY ./Startup.cs ./
 COPY ./appsettings.json ./
 # Copy thêm các file/directory cần thiết từ source của bạn vào đây nếu có (ví dụ các controllers/Pages/Models cần cho runtime minimal)
 
