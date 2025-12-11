@@ -4,6 +4,7 @@ import { HomeComponent } from '../components/home/homecomponent/home.component';
 import { SiteSettingComponent } from '../components/setting/site-setting/site-setting.component';
 import { AboutUsComponent } from '../components/about-us/about-us-component/about-us.component';
 import { ExpertComponent } from '../components/expert/expert-componet/expert.component';
+import { AppointmentComponent } from '../appointment/appointment.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,14 @@ export const routes: Routes = [
         component:MainLayoutComponent,
         children: [
             { path: '', component: ExpertComponent, data: { name: 'experts'}},
+        ]
+    },
+    {
+        path: 'dat-lich-kham',
+        component: MainLayoutComponent,
+        data: { name: 'appointment-layout' },
+        children: [
+            { path: '', component: AppointmentComponent, data: { name: 'appointment' } },
         ]
     }
 ];

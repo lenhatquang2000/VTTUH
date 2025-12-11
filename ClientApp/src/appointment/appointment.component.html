@@ -1,0 +1,234 @@
+<!-- Hero Section -->
+<section class="hero-section py-5" style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);">
+  <div class="container">
+    <div class="text-center">
+      <h1 class="display-5 fw-bold mb-3" style="color: #1976D2;">Đặt lịch khám nhanh chóng – Chỉ 3 bước</h1>
+      <p class="lead mb-4" style="color: #424242;">
+        Chọn dịch vụ → Chọn ngày giờ → Nhập thông tin → Hoàn tất
+      </p>
+      <button class="btn btn-lg vtth-btn-primary" (click)="currentStep = 1" *ngIf="currentStep > 1">
+        <i class="bi bi-calendar-check me-2"></i>Bắt đầu đặt lịch
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Step Indicator -->
+<app-step-indicator [currentStep]="currentStep"></app-step-indicator>
+
+<!-- Main Content -->
+<div class="container my-5">
+  <!-- Step 1: Select Service -->
+  <div *ngIf="currentStep === 1" class="step-content">
+    <h3 class="mb-4 text-center" style="color: #1976D2;">Chọn loại dịch vụ</h3>
+    
+    <div *ngIf="loadingServices" class="text-center py-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Đang tải...</span>
+      </div>
+    </div>
+
+    <div class="row g-4" *ngIf="!loadingServices">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let service of services">
+        <app-service-card 
+          [service]="service" 
+          [isSelected]="selectedService?.id === service.id"
+          (selected)="onServiceSelected($event)">
+        </app-service-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Select Date, Time & Doctor -->
+  <div *ngIf="currentStep === 2" class="step-content">
+    <h3 class="mb-4 text-center" style="color: #1976D2;">Chọn ngày giờ & bác sĩ</h3>
+
+    <!-- Department Selection (if needed) -->
+    <div *ngIf="selectedService?.requiresDoctor && !selectedDepartment && departments.length > 0" class="mb-4">
+      <h5 class="mb-3">Chọn chuyên khoa:</h5>
+      <div class="row g-3">
+        <ng-container *ngFor="let dept of departmentsList; trackBy: trackByDeptId">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 cursor-pointer" 
+                 [class.border-primary]="isDepartmentSelected(dept)"
+                 (click)="onDepartmentSelected(dept)">
+              <div class="card-body">
+                <h6 class="card-title">{{ dept.name }}</h6>
+                <p class="card-text small text-muted">{{ dept.description }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Doctor Selection (if needed) -->
+    <div *ngIf="selectedService && selectedService.requiresDoctor && (selectedDepartment || departments.length === 0)" class="mb-4">
+      <h5 class="mb-3">Chọn bác sĩ:</h5>
+      
+      <div *ngIf="loadingDoctors" class="text-center py-3">
+        <div class="spinner-border text-primary" role="status"></div>
+      </div>
+
+      <div *ngIf="!loadingDoctors && doctors.length > 0">
+        <app-doctor-card 
+          *ngFor="let doctor of doctors"
+          [doctor]="doctor"
+          [isSelected]="selectedDoctor?.id === doctor.id"
+          (selected)="onDoctorSelected($event)">
+        </app-doctor-card>
+      </div>
+
+      <div *ngIf="!loadingDoctors && doctors.length === 0" class="alert alert-info">
+        Không có bác sĩ nào trong chuyên khoa này
+      </div>
+    </div>
+
+    <!-- Calendar & Time Slots -->
+    <div *ngIf="!selectedService?.requiresDoctor || selectedDoctor" class="mt-4">
+      <app-calendar-slot
+        [slots]="timeSlots"
+        [selectedDate]="selectedDate"
+        [selectedTime]="selectedTime"
+        (dateSelected)="onDateSelected($event)"
+        (timeSelected)="onTimeSelected($event)">
+      </app-calendar-slot>
+    </div>
+  </div>
+
+  <!-- Step 3: Patient Information -->
+  <div *ngIf="currentStep === 3" class="step-content">
+    <h3 class="mb-4 text-center" style="color: #1976D2;">Thông tin bệnh nhân & xác nhận</h3>
+    
+    <div class="row">
+      <!-- Patient Form -->
+      <div class="col-12 col-lg-8">
+        <app-patient-form
+          #patientForm
+          [formData]="patientFormData">
+        </app-patient-form>
+
+        <!-- Checkboxes -->
+        <div class="mt-4">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="agreeTerms" checked>
+            <label class="form-check-label" for="agreeTerms">
+              Tôi đồng ý với điều khoản đặt lịch và chính sách bảo mật
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="sendNotification" checked>
+            <label class="form-check-label" for="sendNotification">
+              Gửi xác nhận qua SMS & Email
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-4">
+          <button type="button" class="btn btn-lg w-100 vtth-btn-primary" 
+                  [disabled]="!canProceedToNextStep()"
+                  (click)="submitAppointment()">
+            <i class="bi bi-check-circle me-2"></i>Hoàn tất đặt lịch
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Box -->
+      <div class="col-12 col-lg-4">
+        <app-summary-box [summary]="summary"></app-summary-box>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons (sticky on mobile) -->
+  <div class="navigation-buttons sticky-bottom d-md-none bg-white border-top p-3">
+    <div class="d-flex gap-2">
+      <button class="btn flex-grow-1" 
+              [class.vtth-btn-primary]="currentStep > 1"
+              [class.btn-secondary]="currentStep === 1"
+              [disabled]="currentStep === 1"
+              (click)="previousStep()">
+        <i class="bi bi-arrow-left me-2"></i>Quay lại
+      </button>
+      <button class="btn flex-grow-1 vtth-btn-primary"
+              [disabled]="!canProceedToNextStep() || currentStep === 3"
+              (click)="nextStep()">
+        Tiếp tục<i class="bi bi-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Desktop Navigation -->
+  <div class="navigation-buttons-desktop d-none d-md-flex justify-content-between mt-4">
+    <button class="btn" 
+            [class.vtth-btn-primary]="currentStep > 1"
+            [class.btn-secondary]="currentStep === 1"
+            [disabled]="currentStep === 1"
+            (click)="previousStep()">
+      <i class="bi bi-arrow-left me-2"></i>Quay lại
+    </button>
+    <button class="btn vtth-btn-primary"
+            [disabled]="!canProceedToNextStep() || currentStep === 3"
+            (click)="nextStep()">
+      Tiếp tục<i class="bi bi-arrow-right ms-2"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" [class.show]="showSuccessModal" [style.display]="showSuccessModal ? 'block' : 'none'" 
+     tabindex="-1" *ngIf="showSuccessModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-success">
+          <i class="bi bi-check-circle-fill me-2"></i>Đặt lịch thành công!
+        </h5>
+        <button type="button" class="btn-close" (click)="closeSuccessModal()"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div *ngIf="appointmentResponse">
+          <p class="mb-3">Mã đặt lịch của bạn:</p>
+          <h4 class="text-primary mb-4">{{ appointmentResponse.appointmentCode }}</h4>
+          
+          <div class="qr-code mb-4">
+            <img [src]="appointmentResponse.qrCode" alt="QR Code" class="img-fluid" style="max-width: 200px;">
+          </div>
+
+          <p class="text-muted small mb-4">
+            Vui lòng lưu mã đặt lịch và QR code để check-in tại kios
+          </p>
+
+          <div class="d-flex gap-2 justify-content-center flex-wrap">
+            <button class="btn vtth-btn-primary" (click)="downloadPDF()">
+              <i class="bi bi-download me-2"></i>Tải phiếu đặt lịch PDF
+            </button>
+            <button class="btn vtth-btn-secondary" (click)="addToCalendar()">
+              <i class="bi bi-calendar-plus me-2"></i>Thêm vào lịch
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" (click)="closeSuccessModal()">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade" [class.show]="showSuccessModal" *ngIf="showSuccessModal"></div>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+  <div *ngFor="let toast of toastService.getToasts()" 
+       class="toast show" 
+       [class.bg-success]="toast.type === 'success'"
+       [class.bg-danger]="toast.type === 'error'"
+       [class.bg-info]="toast.type === 'info'"
+       [class.bg-warning]="toast.type === 'warning'"
+       role="alert">
+    <div class="toast-body text-white">
+      {{ toast.message }}
+    </div>
+  </div>
+</div>

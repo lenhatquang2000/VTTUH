@@ -1,0 +1,31 @@
+<div class="step-indicator-container bg-white shadow-sm py-3 sticky-top" style="z-index: 1000;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <div class="d-flex align-items-center">
+          <div class="step-circle me-2" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+            <i class="bi" [class.bi-check-lg]="currentStep > 1" [class.bi-1-circle]="currentStep === 1"></i>
+          </div>
+          <span class="step-label" [class.active]="currentStep >= 1">Chọn dịch vụ</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <div class="d-flex align-items-center">
+          <div class="step-circle me-2" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+            <i class="bi" [class.bi-check-lg]="currentStep > 2" [class.bi-2-circle]="currentStep === 2"></i>
+          </div>
+          <span class="step-label" [class.active]="currentStep >= 2">Chọn ngày giờ</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="d-flex align-items-center">
+          <div class="step-circle me-2" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+            <i class="bi" [class.bi-check-lg]="currentStep > 3" [class.bi-3-circle]="currentStep === 3"></i>
+          </div>
+          <span class="step-label" [class.active]="currentStep >= 3">Thông tin bệnh nhân</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

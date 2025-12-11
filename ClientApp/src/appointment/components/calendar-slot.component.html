@@ -1,0 +1,64 @@
+<div class="calendar-container">
+  <!-- Calendar Header -->
+  <div class="calendar-header mb-3">
+    <button class="btn btn-sm vtth-btn-primary me-2" (click)="previousWeek()">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <h6 class="mb-0 flex-grow-1 text-center">{{ weekRange }}</h6>
+    <button class="btn btn-sm vtth-btn-primary ms-2" (click)="nextWeek()">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Calendar Grid -->
+  <div class="calendar-grid mb-4">
+    <div *ngFor="let day of weekDays" class="calendar-day" 
+         [class.today]="isToday(day)" 
+         [class.selected]="isSelected(day)"
+         [class.disabled]="isDisabled(day)"
+         (click)="selectDate(day)">
+      <div class="day-name">{{ getDayName(day) }}</div>
+      <div class="day-number">{{ getDayNumber(day) }}</div>
+      <div class="day-month">{{ getMonth(day) }}</div>
+      <div *ngIf="getAvailableSlots(day) > 0" class="slot-badge">
+        {{ getAvailableSlots(day) }} slot
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Slots -->
+  <div *ngIf="selectedDate" class="time-slots-container">
+    <h6 class="mb-3">Chọn khung giờ - {{ formatSelectedDate() }}</h6>
+    <div class="time-filter mb-3">
+      <button class="btn btn-sm me-2" 
+              [class.vtth-btn-primary]="timeFilter === 'all'"
+              [class.btn-outline-secondary]="timeFilter !== 'all'"
+              (click)="setTimeFilter('all')">Tất cả</button>
+      <button class="btn btn-sm me-2"
+              [class.vtth-btn-primary]="timeFilter === 'morning'"
+              [class.btn-outline-secondary]="timeFilter !== 'morning'"
+              (click)="setTimeFilter('morning')">Sáng</button>
+      <button class="btn btn-sm me-2"
+              [class.vtth-btn-primary]="timeFilter === 'afternoon'"
+              [class.btn-outline-secondary]="timeFilter !== 'afternoon'"
+              (click)="setTimeFilter('afternoon')">Chiều</button>
+      <button class="btn btn-sm"
+              [class.vtth-btn-primary]="timeFilter === 'evening'"
+              [class.btn-outline-secondary]="timeFilter !== 'evening'"
+              (click)="setTimeFilter('evening')">Tối</button>
+    </div>
+    <div class="time-slots-grid">
+      <button *ngFor="let slot of filteredSlots" 
+              class="time-slot-btn"
+              [class.selected]="isSlotSelected(slot)"
+              [disabled]="!slot.available"
+              (click)="selectTimeSlot(slot)">
+        {{ slot.time }}
+      </button>
+    </div>
+    <p *ngIf="filteredSlots.length === 0" class="text-muted text-center mt-3">
+      Không còn slot trống trong ngày này
+    </p>
+  </div>
+</div>
+

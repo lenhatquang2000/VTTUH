@@ -1,0 +1,129 @@
+.calendar-container {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  border: 2px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.calendar-day:hover:not(.disabled) {
+  border-color: #1976D2;
+  background: #E3F2FD;
+}
+
+.calendar-day.today {
+  border-color: #1976D2;
+  background: #E3F2FD;
+}
+
+.calendar-day.selected {
+  border-color: #1976D2;
+  background: #1976D2;
+  color: white;
+}
+
+.calendar-day.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #F5F5F5;
+}
+
+.day-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.day-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.day-month {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.slot-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #4CAF50;
+  color: white;
+  font-size: 0.6rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.time-slots-container {
+  border-top: 2px solid #E3F2FD;
+  padding-top: 1.5rem;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem;
+}
+
+.time-slot-btn {
+  padding: 0.75rem 1rem;
+  border: 2px solid #E0E0E0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.time-slot-btn:hover:not(:disabled) {
+  border-color: #1976D2;
+  background: #E3F2FD;
+}
+
+.time-slot-btn.selected {
+  border-color: #1976D2;
+  background: #1976D2;
+  color: white;
+}
+
+.time-slot-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #F5F5F5;
+}
+
+@media (max-width: 640px) {
+  .calendar-grid {
+    gap: 0.25rem;
+  }
+  .calendar-day {
+    padding: 0.5rem 0.25rem;
+  }
+  .day-number {
+    font-size: 1rem;
+  }
+  .time-slots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

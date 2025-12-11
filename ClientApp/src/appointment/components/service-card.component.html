@@ -1,0 +1,12 @@
+<div class="service-card h-100" [class.selected]="isSelected" (click)="onSelect()">
+  <div class="service-icon mb-3">
+    <i [class]="'bi ' + service.icon"></i>
+  </div>
+  <h5 class="service-name mb-2">{{ service.name }}</h5>
+  <p class="service-description mb-3">{{ service.description }}</p>
+  <button class="btn w-100" [class.vtth-btn-primary]="!isSelected" [class.vtth-bg-primary]="isSelected" 
+          [class.text-white]="isSelected">
+    {{ isSelected ? 'Đã chọn' : 'Chọn' }}
+  </button>
+</div>
+

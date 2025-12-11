@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\assets\\imgs\\devs.png",
+      "PackagePath": "staticwebassets\\browser\\assets\\imgs\\devs.png"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\assets\\imgs\\vtthbanner.png",
+      "PackagePath": "staticwebassets\\browser\\assets\\imgs\\vtthbanner.png"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\favicon.ico",
+      "PackagePath": "staticwebassets\\browser\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\index.html",
+      "PackagePath": "staticwebassets\\browser\\index.html"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\main-SMVITYM4.js",
+      "PackagePath": "staticwebassets\\browser\\main-SMVITYM4.js"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\media\\bootstrap-icons-CVBWLLHT.woff2",
+      "PackagePath": "staticwebassets\\browser\\media\\bootstrap-icons-CVBWLLHT.woff2"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\media\\bootstrap-icons-VQNJTM6Q.woff",
+      "PackagePath": "staticwebassets\\browser\\media\\bootstrap-icons-VQNJTM6Q.woff"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\polyfills-5CFQRCPP.js",
+      "PackagePath": "staticwebassets\\browser\\polyfills-5CFQRCPP.js"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\scripts-TTWY4XDY.js",
+      "PackagePath": "staticwebassets\\browser\\scripts-TTWY4XDY.js"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\browser\\styles-6JDEAOWC.css",
+      "PackagePath": "staticwebassets\\browser\\styles-6JDEAOWC.css"
+    },
+    {
+      "Id": "C:\\Workspace\\.Net\\VTTH\\wwwroot\\prerendered-routes.json",
+      "PackagePath": "staticwebassets\\prerendered-routes.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.VTTH.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.VTTH.props",
+      "PackagePath": "build\\VTTH.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.VTTH.props",
+      "PackagePath": "buildMultiTargeting\\VTTH.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.VTTH.props",
+      "PackagePath": "buildTransitive\\VTTH.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

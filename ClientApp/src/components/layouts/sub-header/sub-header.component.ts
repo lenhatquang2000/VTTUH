@@ -23,7 +23,7 @@ export class SubHeaderComponent implements OnInit, OnDestroy {
         { id: 'home', label: 'Trang chủ', route: '/', name: 'home' },
         { id: 'intro', label: 'Giới thiệu', route: '/about-us', name: 'about-us' },
         { id: 'experts', label: 'Đội ngũ chuyên gia', route: '/experts', name: 'experts' },
-        { id: 'appointment', label: 'Đặt lịch khám bệnh', route: '/appointment' },
+        { id: 'appointment', label: 'Đặt lịch khám bệnh', route: '/dat-lich-kham', name: 'appointment' },
         { id: 'news', label: 'Tin tức', route: '/news' }
     ];
 
