@@ -1,10 +1,17 @@
-<div class="service-card h-100" [class.selected]="isSelected" (click)="onSelect()">
-  <div class="service-icon mb-3">
-    <i [class]="'bi ' + service.icon"></i>
+<div class="service-card card h-100 border-2 rounded-3 p-4" 
+     [style.cursor]="'pointer'"
+     [class.border-secondary]="!isSelected"
+     [class.vtth-border-primary]="isSelected"
+     [class.bg-light]="isSelected"
+     (click)="onSelect()">
+  <div class="text-center mb-3">
+    <i [class]="'bi ' + service.icon + ' fs-1 vtth-text-primary'"></i>
   </div>
-  <h5 class="service-name mb-2">{{ service.name }}</h5>
-  <p class="service-description mb-3">{{ service.description }}</p>
-  <button class="btn w-100" [class.vtth-btn-primary]="!isSelected" [class.vtth-bg-primary]="isSelected" 
+  <h5 class="vtth-text-primary fw-semibold mb-2">{{ service.name }}</h5>
+  <p class="text-muted small mb-3 flex-grow-1">{{ service.description }}</p>
+  <button class="btn w-100" 
+          [class.vtth-btn-primary]="!isSelected" 
+          [class.vtth-bg-primary]="isSelected" 
           [class.text-white]="isSelected">
     {{ isSelected ? 'Đã chọn' : 'Chọn' }}
   </button>

@@ -1,48 +1,7 @@
+/* Chỉ giữ lại CSS không thể thay bằng Bootstrap */
 .summary-box {
-  background: #E3F2FD;
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 2px solid #1976D2;
   position: sticky;
   top: 100px;
-}
-
-.summary-title {
-  color: #1976D2;
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-
-.summary-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.summary-label {
-  font-size: 0.875rem;
-  color: #666;
-  font-weight: 500;
-}
-
-.summary-value {
-  font-size: 1rem;
-  color: #1976D2;
-  font-weight: 600;
-}
-
-.summary-value.fee {
-  color: #4CAF50;
-  font-size: 1.1rem;
-}
-
-.summary-divider {
-  border-top: 2px solid #1976D2;
-  opacity: 0.3;
-}
-
-.summary-note {
-  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -52,4 +11,3 @@
     margin-top: 2rem;
   }
 }
-

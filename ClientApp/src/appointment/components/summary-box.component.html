@@ -1,43 +1,43 @@
-<div class="summary-box">
-  <h5 class="summary-title mb-4">
+<div class="summary-box card rounded-3 p-4 vtth-border-primary border-2 bg-light">
+  <h5 class="vtth-text-primary fw-semibold mb-4">
     <i class="bi bi-info-circle me-2"></i>Tóm tắt đặt lịch
   </h5>
   
-  <div class="summary-item mb-3">
-    <div class="summary-label">Loại dịch vụ:</div>
-    <div class="summary-value">{{ summary.serviceName || 'Chưa chọn' }}</div>
+  <div class="d-flex flex-column mb-3">
+    <div class="small text-muted fw-medium mb-1">Loại dịch vụ:</div>
+    <div class="vtth-text-primary fw-semibold">{{ summary.serviceName || 'Chưa chọn' }}</div>
   </div>
 
-  <div class="summary-item mb-3" *ngIf="summary.departmentName">
-    <div class="summary-label">Chuyên khoa:</div>
-    <div class="summary-value">{{ summary.departmentName }}</div>
+  <div class="d-flex flex-column mb-3" *ngIf="summary.departmentName">
+    <div class="small text-muted fw-medium mb-1">Chuyên khoa:</div>
+    <div class="vtth-text-primary fw-semibold">{{ summary.departmentName }}</div>
   </div>
 
-  <div class="summary-item mb-3" *ngIf="summary.doctorName">
-    <div class="summary-label">Bác sĩ:</div>
-    <div class="summary-value">{{ summary.doctorName }}</div>
+  <div class="d-flex flex-column mb-3" *ngIf="summary.doctorName">
+    <div class="small text-muted fw-medium mb-1">Bác sĩ:</div>
+    <div class="vtth-text-primary fw-semibold">{{ summary.doctorName }}</div>
   </div>
 
-  <div class="summary-item mb-3" *ngIf="summary.date && summary.time">
-    <div class="summary-label">Ngày giờ:</div>
-    <div class="summary-value">
+  <div class="d-flex flex-column mb-3" *ngIf="summary.date && summary.time">
+    <div class="small text-muted fw-medium mb-1">Ngày giờ:</div>
+    <div class="vtth-text-primary fw-semibold">
       {{ formatDate(summary.date) }} – {{ summary.time }}
     </div>
   </div>
 
-  <div class="summary-item mb-3" *ngIf="summary.location">
-    <div class="summary-label">Địa điểm:</div>
-    <div class="summary-value">{{ summary.location }}</div>
+  <div class="d-flex flex-column mb-3" *ngIf="summary.location">
+    <div class="small text-muted fw-medium mb-1">Địa điểm:</div>
+    <div class="vtth-text-primary fw-semibold">{{ summary.location }}</div>
   </div>
 
-  <div class="summary-item mb-3" *ngIf="summary.estimatedFee">
-    <div class="summary-label">Phí khám dự kiến:</div>
-    <div class="summary-value fee">{{ formatCurrency(summary.estimatedFee) }}</div>
+  <div class="d-flex flex-column mb-3" *ngIf="summary.estimatedFee">
+    <div class="small text-muted fw-medium mb-1">Phí khám dự kiến:</div>
+    <div class="vtth-text-success fw-semibold fs-5">{{ formatCurrency(summary.estimatedFee) }}</div>
   </div>
 
-  <div class="summary-divider my-4"></div>
+  <div class="border-top border-2 vtth-border-primary opacity-25 my-4"></div>
 
-  <div class="summary-note">
+  <div class="text-center">
     <small class="text-muted">
       <i class="bi bi-info-circle me-1"></i>
       Vui lòng kiểm tra lại thông tin trước khi xác nhận

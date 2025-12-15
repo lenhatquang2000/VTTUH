@@ -3,26 +3,56 @@
     <div class="row align-items-center">
       <div class="col-12 col-md-4 mb-2 mb-md-0">
         <div class="d-flex align-items-center">
-          <div class="step-circle me-2" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+          <div class="rounded-circle d-flex align-items-center justify-content-center me-2 bg-secondary text-secondary" 
+               [style.width.px]="currentStep >= 1 ? 40 : 35"
+               [style.height.px]="currentStep >= 1 ? 40 : 35"
+               [class.vtth-bg-primary]="currentStep >= 1" 
+               [class.text-white]="currentStep >= 1"
+               [class.vtth-bg-success]="currentStep > 1"
+               [class.fs-5]="currentStep >= 1"
+               [class.fs-6]="currentStep < 1"
+               [class.fw-semibold]="true">
             <i class="bi" [class.bi-check-lg]="currentStep > 1" [class.bi-1-circle]="currentStep === 1"></i>
           </div>
-          <span class="step-label" [class.active]="currentStep >= 1">Chọn dịch vụ</span>
+          <span class="text-secondary fw-medium small" 
+                [class.vtth-text-primary]="currentStep >= 1"
+                [class.fw-semibold]="currentStep >= 1">Chọn dịch vụ</span>
         </div>
       </div>
       <div class="col-12 col-md-4 mb-2 mb-md-0">
         <div class="d-flex align-items-center">
-          <div class="step-circle me-2" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+          <div class="rounded-circle d-flex align-items-center justify-content-center me-2 bg-secondary text-secondary" 
+               [style.width.px]="currentStep >= 2 ? 40 : 35"
+               [style.height.px]="currentStep >= 2 ? 40 : 35"
+               [class.vtth-bg-primary]="currentStep >= 2" 
+               [class.text-white]="currentStep >= 2"
+               [class.vtth-bg-success]="currentStep > 2"
+               [class.fs-5]="currentStep >= 2"
+               [class.fs-6]="currentStep < 2"
+               [class.fw-semibold]="true">
             <i class="bi" [class.bi-check-lg]="currentStep > 2" [class.bi-2-circle]="currentStep === 2"></i>
           </div>
-          <span class="step-label" [class.active]="currentStep >= 2">Chọn ngày giờ</span>
+          <span class="text-secondary fw-medium small" 
+                [class.vtth-text-primary]="currentStep >= 2"
+                [class.fw-semibold]="currentStep >= 2">Chọn ngày giờ</span>
         </div>
       </div>
       <div class="col-12 col-md-4">
         <div class="d-flex align-items-center">
-          <div class="step-circle me-2" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+          <div class="rounded-circle d-flex align-items-center justify-content-center me-2 bg-secondary text-secondary" 
+               [style.width.px]="currentStep >= 3 ? 40 : 35"
+               [style.height.px]="currentStep >= 3 ? 40 : 35"
+               [class.vtth-bg-primary]="currentStep >= 3" 
+               [class.text-white]="currentStep >= 3"
+               [class.vtth-bg-success]="currentStep > 3"
+               [class.fs-5]="currentStep >= 3"
+               [class.fs-6]="currentStep < 3"
+               [class.fw-semibold]="true">
             <i class="bi" [class.bi-check-lg]="currentStep > 3" [class.bi-3-circle]="currentStep === 3"></i>
           </div>
-          <span class="step-label" [class.active]="currentStep >= 3">Thông tin bệnh nhân</span>
+          <span class="text-secondary fw-medium small" 
+                [class.vtth-text-primary]="currentStep >= 3"
+                [class.fw-semibold]="currentStep >= 3">Thông tin bệnh nhân</span>
         </div>
       </div>
     </div>

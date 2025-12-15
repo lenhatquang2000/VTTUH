@@ -1,6 +1,6 @@
-<div class="calendar-container">
+<div class="card rounded-3 p-4">
   <!-- Calendar Header -->
-  <div class="calendar-header mb-3">
+  <div class="d-flex align-items-center mb-3">
     <button class="btn btn-sm vtth-btn-primary me-2" (click)="previousWeek()">
       <i class="bi bi-chevron-left"></i>
     </button>
@@ -12,24 +12,30 @@
 
   <!-- Calendar Grid -->
   <div class="calendar-grid mb-4">
-    <div *ngFor="let day of weekDays" class="calendar-day" 
-         [class.today]="isToday(day)" 
-         [class.selected]="isSelected(day)"
-         [class.disabled]="isDisabled(day)"
+    <div *ngFor="let day of weekDays" 
+         class="border border-2 rounded p-2 text-center position-relative" 
+         [style.cursor]="isDisabled(day) ? 'not-allowed' : 'pointer'"
+         [class.border-secondary]="!isSelected(day) && !isToday(day)"
+         [class.vtth-border-primary]="isToday(day) || isSelected(day)"
+         [class.bg-light]="isToday(day) && !isSelected(day)"
+         [class.vtth-bg-primary]="isSelected(day)"
+         [class.text-white]="isSelected(day)"
+         [class.opacity-50]="isDisabled(day)"
+         [class.pe-none]="isDisabled(day)"
          (click)="selectDate(day)">
-      <div class="day-name">{{ getDayName(day) }}</div>
-      <div class="day-number">{{ getDayNumber(day) }}</div>
-      <div class="day-month">{{ getMonth(day) }}</div>
-      <div *ngIf="getAvailableSlots(day) > 0" class="slot-badge">
+      <div class="small fw-semibold mb-1">{{ getDayName(day) }}</div>
+      <div class="fs-5 fw-bold">{{ getDayNumber(day) }}</div>
+      <div class="small opacity-75">{{ getMonth(day) }}</div>
+      <span *ngIf="getAvailableSlots(day) > 0" class="slot-badge badge bg-success small">
         {{ getAvailableSlots(day) }} slot
-      </div>
+      </span>
     </div>
   </div>
 
   <!-- Time Slots -->
-  <div *ngIf="selectedDate" class="time-slots-container">
+  <div *ngIf="selectedDate" class="border-top pt-4">
     <h6 class="mb-3">Chọn khung giờ - {{ formatSelectedDate() }}</h6>
-    <div class="time-filter mb-3">
+    <div class="mb-3">
       <button class="btn btn-sm me-2" 
               [class.vtth-btn-primary]="timeFilter === 'all'"
               [class.btn-outline-secondary]="timeFilter !== 'all'"
@@ -49,8 +55,12 @@
     </div>
     <div class="time-slots-grid">
       <button *ngFor="let slot of filteredSlots" 
-              class="time-slot-btn"
-              [class.selected]="isSlotSelected(slot)"
+              class="btn border border-2 rounded fw-medium"
+              [class.border-secondary]="!isSlotSelected(slot)"
+              [class.vtth-border-primary]="isSlotSelected(slot)"
+              [class.vtth-bg-primary]="isSlotSelected(slot)"
+              [class.text-white]="isSlotSelected(slot)"
+              [class.bg-light]="!isSlotSelected(slot) && slot.available"
               [disabled]="!slot.available"
               (click)="selectTimeSlot(slot)">
         {{ slot.time }}
