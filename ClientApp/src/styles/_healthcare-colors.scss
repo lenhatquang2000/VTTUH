@@ -18,7 +18,7 @@ $vtth-danger-hover: darken($vtth-danger, 10%);
 $vtth-red: #e53935;
 $vtth-red-hover: darken($vtth-red, 10%);
 
-$vtth-info: #03A9F4;
+$vtth-info: #4CAF50;
 $vtth-info-hover: darken($vtth-info, 10%);
 
 // Background utilities
@@ -167,4 +167,11 @@ $vtth-info-hover: darken($vtth-info, 10%);
 .vtth-dropdown-item {
     @include vtth-dropdown-item($vtth-red, #fff7f0, #fdeaea);
 }
-  
+
+// ---------------- Patient Sidebar Overrides ----------------
+// Bỏ màu active mặc định của Bootstrap, dùng màu brand $vtth-secondary
+.patient-sidebar .list-group-item.active {
+  background-color: $vtth-secondary !important;
+  border-color: $vtth-secondary !important;
+  color: #fff !important;
+}
