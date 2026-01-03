@@ -35,6 +35,39 @@ export class HomeComponent implements OnInit {
   latestArticles: Article[] = [];
   departments: Department[] = [];
 
+  // Stats data
+  stats = [
+    { icon: 'bi-person-badge', value: '200+', label: 'Bác sĩ chuyên khoa', color: '#2FA4A9' },
+    { icon: 'bi-people-fill', value: '50,000+', label: 'Bệnh nhân/năm', color: '#4A90E2' },
+    { icon: 'bi-hospital', value: '30+', label: 'Chuyên khoa', color: '#5CBF90' },
+    { icon: 'bi-award', value: '15+', label: 'Năm kinh nghiệm', color: '#F5B971' }
+  ];
+
+  // Quick services
+  quickServices = [
+    {
+      title: 'Đặt lịch khám',
+      description: 'Đặt lịch hẹn khám bệnh trực tuyến nhanh chóng, tiện lợi',
+      icon: 'bi-calendar-check',
+      route: '/dat-lich-kham',
+      gradient: 'linear-gradient(135deg, #2FA4A9 0%, #23878B 100%)'
+    },
+    {
+      title: 'Tra cứu kết quả',
+      description: 'Tra cứu kết quả xét nghiệm, chẩn đoán hình ảnh online',
+      icon: 'bi-file-earmark-medical',
+      route: '/patient/tien-ich/tra-cuu-ket-qua',
+      gradient: 'linear-gradient(135deg, #4A90E2 0%, #357ABD 100%)'
+    },
+    {
+      title: 'Hỏi đáp chuyên gia',
+      description: 'Tư vấn sức khỏe trực tuyến với đội ngũ bác sĩ giỏi',
+      icon: 'bi-chat-heart',
+      route: '/online-services/hoi-dap',
+      gradient: 'linear-gradient(135deg, #5CBF90 0%, #48A97B 100%)'
+    }
+  ];
+
   // paging / UI state
   newsPage = 1;
   newsPageSize = 5;

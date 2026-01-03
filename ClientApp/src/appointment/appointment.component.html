@@ -1,14 +1,103 @@
-<!-- Hero Section -->
-<section class="hero-section py-5 vtth-bg-gradient">
+<!-- Hero Section with Orange/Rose/Purple Gradient -->
+<section class="position-relative overflow-hidden" style="background: linear-gradient(135deg, #F59E0B 0%, #F472B6 50%, #A855F7 100%); min-height: 380px;">
+  <!-- Decorative Elements -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="opacity: 0.08;">
+    <div class="position-absolute" style="top: 8%; left: 5%; font-size: 10rem; color: white;">
+      <i class="bi bi-calendar-check"></i>
+    </div>
+    <div class="position-absolute" style="top: 20%; right: 10%; font-size: 6rem; color: white;">
+      <i class="bi bi-clock"></i>
+    </div>
+    <div class="position-absolute" style="bottom: 25%; left: 20%; font-size: 5rem; color: white;">
+      <i class="bi bi-clipboard2-check"></i>
+    </div>
+    <div class="position-absolute" style="bottom: 15%; right: 8%; font-size: 7rem; color: white;">
+      <i class="bi bi-heart-pulse"></i>
+    </div>
+  </div>
+  
+  <div class="container position-relative py-5">
+    <div class="row align-items-center py-4">
+      <div class="col-lg-8 mx-auto text-center text-white">
+        <div class="mb-4">
+          <span class="badge bg-white text-dark px-4 py-2 rounded-pill fs-6 shadow-sm">
+            <i class="bi bi-lightning-charge-fill me-2 text-warning"></i>
+            Nhanh chóng & Tiện lợi
+          </span>
+        </div>
+        <h1 class="display-4 fw-bold mb-3" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.25);">
+          Đặt lịch khám bệnh
+        </h1>
+        <p class="lead mb-0 opacity-90" style="font-size: 1.3rem;">
+          Chỉ 3 bước đơn giản để đặt lịch hẹn khám
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Wave Divider -->
+  <div class="position-absolute bottom-0 start-0 w-100">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width: 100%; height: 60px;">
+      <path d="M0 120L48 110C96 100 192 80 288 70C384 60 480 60 576 65C672 70 768 80 864 85C960 90 1056 90 1152 85C1248 80 1344 70 1392 65L1440 60V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Process Overview Section -->
+<section class="py-4 bg-white">
   <div class="container">
-    <div class="text-center">
-      <h1 class="display-5 fw-bold mb-3 vtth-text-primary">Đặt lịch khám nhanh chóng – Chỉ 3 bước</h1>
-      <p class="lead mb-4 vtth-text-secondary">
-        Chọn dịch vụ → Chọn ngày giờ → Nhập thông tin → Hoàn tất
-      </p>
-      <button class="btn btn-lg vtth-btn-primary" (click)="currentStep = 1" *ngIf="currentStep > 1">
-        <i class="bi bi-calendar-check me-2"></i>Bắt đầu đặt lịch
-      </button>
+    <div class="row g-3 justify-content-center">
+      <div class="col-4 col-md-3">
+        <div class="text-center p-3 rounded-4 service-card-hover"
+             [class.shadow-lg]="currentStep === 1"
+             [style.background]="currentStep === 1 ? 'linear-gradient(135deg, #F59E0B, #F97316)' : '#f8fafc'"
+             [style.color]="currentStep === 1 ? 'white' : ''">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-2"
+               [style.background]="currentStep === 1 ? 'white' : 'linear-gradient(135deg, #F59E0B, #F97316)'"
+               [style.color]="currentStep === 1 ? '#F59E0B' : 'white'"
+               style="width: 50px; height: 50px;">
+            <i class="bi bi-1-circle-fill fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-1 small">Chọn dịch vụ</h6>
+          <p class="small mb-0 opacity-75 d-none d-md-block">Loại hình khám</p>
+        </div>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+      </div>
+      <div class="col-4 col-md-3">
+        <div class="text-center p-3 rounded-4 service-card-hover"
+             [class.shadow-lg]="currentStep === 2"
+             [style.background]="currentStep === 2 ? 'linear-gradient(135deg, #F472B6, #EC4899)' : '#f8fafc'"
+             [style.color]="currentStep === 2 ? 'white' : ''">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-2"
+               [style.background]="currentStep === 2 ? 'white' : 'linear-gradient(135deg, #F472B6, #EC4899)'"
+               [style.color]="currentStep === 2 ? '#F472B6' : 'white'"
+               style="width: 50px; height: 50px;">
+            <i class="bi bi-2-circle-fill fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-1 small">Ngày & Bác sĩ</h6>
+          <p class="small mb-0 opacity-75 d-none d-md-block">Thời gian & chuyên gia</p>
+        </div>
+      </div>
+      <div class="col-auto d-flex align-items-center">
+        <i class="bi bi-arrow-right fs-4 text-muted"></i>
+      </div>
+      <div class="col-4 col-md-3">
+        <div class="text-center p-3 rounded-4 service-card-hover"
+             [class.shadow-lg]="currentStep === 3"
+             [style.background]="currentStep === 3 ? 'linear-gradient(135deg, #A855F7, #9333EA)' : '#f8fafc'"
+             [style.color]="currentStep === 3 ? 'white' : ''">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-2"
+               [style.background]="currentStep === 3 ? 'white' : 'linear-gradient(135deg, #A855F7, #9333EA)'"
+               [style.color]="currentStep === 3 ? '#A855F7' : 'white'"
+               style="width: 50px; height: 50px;">
+            <i class="bi bi-3-circle-fill fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-1 small">Xác nhận</h6>
+          <p class="small mb-0 opacity-75 d-none d-md-block">Thông tin & hoàn tất</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -20,10 +109,16 @@
 <div class="container my-5">
   <!-- Step 1: Select Service -->
   <div *ngIf="currentStep === 1" class="step-content">
-    <h3 class="mb-4 text-center vtth-text-primary">Chọn loại dịch vụ</h3>
+    <div class="text-center mb-5">
+      <span class="badge px-3 py-2 rounded-pill mb-3 text-white" style="background: linear-gradient(135deg, #F59E0B, #F97316);">
+        <i class="bi bi-1-circle me-2"></i>Bước 1
+      </span>
+      <h3 class="fw-bold" style="color: #F59E0B;">Chọn loại dịch vụ khám</h3>
+      <p class="text-muted">Lựa chọn dịch vụ phù hợp với nhu cầu của bạn</p>
+    </div>
     
     <div *ngIf="loadingServices" class="text-center py-5">
-      <div class="spinner-border vtth-text-primary" role="status">
+      <div class="spinner-border" style="color: #F59E0B;" role="status">
         <span class="visually-hidden">Đang tải...</span>
       </div>
     </div>
@@ -41,22 +136,30 @@
 
   <!-- Step 2: Select Date, Time & Doctor -->
   <div *ngIf="currentStep === 2" class="step-content">
-    <h3 class="mb-4 text-center vtth-text-primary">Chọn ngày giờ & bác sĩ</h3>
+    <div class="text-center mb-5">
+      <span class="badge px-3 py-2 rounded-pill mb-3 text-white" style="background: linear-gradient(135deg, #F472B6, #EC4899);">
+        <i class="bi bi-2-circle me-2"></i>Bước 2
+      </span>
+      <h3 class="fw-bold" style="color: #F472B6;">Chọn ngày giờ & bác sĩ</h3>
+      <p class="text-muted">Chọn thời gian và bác sĩ phù hợp với bạn</p>
+    </div>
 
     <!-- Department Selection (if needed) -->
-    <div *ngIf="selectedService?.requiresDoctor && !selectedDepartment && departments.length > 0" class="mb-4">
-      <h5 class="mb-3">Chọn chuyên khoa:</h5>
+    <div *ngIf="selectedService?.requiresDoctor && !selectedDepartment && departments.length > 0" class="mb-5">
+      <h5 class="mb-4 fw-bold" style="color: #F472B6;">
+        <i class="bi bi-hospital me-2"></i>Chọn chuyên khoa:
+      </h5>
       <div class="row g-3">
         <ng-container *ngFor="let dept of departmentsList; trackBy: trackByDeptId">
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100" 
+            <div class="card h-100 border-0 shadow-sm rounded-4 service-card-hover" 
                  [style.cursor]="'pointer'"
-                 [class.border-primary]="isDepartmentSelected(dept)"
-                 [class.vtth-border-primary]="isDepartmentSelected(dept)"
+                 [class.shadow-lg]="isDepartmentSelected(dept)"
+                 [style.border]="isDepartmentSelected(dept) ? '2px solid #F472B6' : ''"
                  (click)="onDepartmentSelected(dept)">
-              <div class="card-body">
-                <h6 class="card-title">{{ dept.name }}</h6>
-                <p class="card-text small text-muted">{{ dept.description }}</p>
+              <div class="card-body p-4">
+                <h6 class="card-title fw-bold mb-2">{{ dept.name }}</h6>
+                <p class="card-text small text-muted mb-0">{{ dept.description }}</p>
               </div>
             </div>
           </div>
@@ -65,11 +168,13 @@
     </div>
 
     <!-- Doctor Selection (if needed) -->
-    <div *ngIf="selectedService && selectedService.requiresDoctor && (selectedDepartment || departments.length === 0)" class="mb-4">
-      <h5 class="mb-3">Chọn bác sĩ:</h5>
+    <div *ngIf="selectedService && selectedService.requiresDoctor && (selectedDepartment || departments.length === 0)" class="mb-5">
+      <h5 class="mb-4 fw-bold" style="color: #F472B6;">
+        <i class="bi bi-person-badge me-2"></i>Chọn bác sĩ:
+      </h5>
       
       <div *ngIf="loadingDoctors" class="text-center py-3">
-        <div class="spinner-border text-primary" role="status"></div>
+        <div class="spinner-border" style="color: #F472B6;" role="status"></div>
       </div>
 
       <div *ngIf="!loadingDoctors && doctors.length > 0">
@@ -81,8 +186,8 @@
         </app-doctor-card>
       </div>
 
-      <div *ngIf="!loadingDoctors && doctors.length === 0" class="alert alert-info">
-        Không có bác sĩ nào trong chuyên khoa này
+      <div *ngIf="!loadingDoctors && doctors.length === 0" class="alert alert-info rounded-4">
+        <i class="bi bi-info-circle me-2"></i>Không có bác sĩ nào trong chuyên khoa này
       </div>
     </div>
 
@@ -100,39 +205,56 @@
 
   <!-- Step 3: Patient Information -->
   <div *ngIf="currentStep === 3" class="step-content">
-    <h3 class="mb-4 text-center vtth-text-primary">Thông tin bệnh nhân & xác nhận</h3>
+    <div class="text-center mb-5">
+      <span class="badge px-3 py-2 rounded-pill mb-3 text-white" style="background: linear-gradient(135deg, #A855F7, #9333EA);">
+        <i class="bi bi-3-circle me-2"></i>Bước 3
+      </span>
+      <h3 class="fw-bold" style="color: #A855F7;">Thông tin & xác nhận</h3>
+      <p class="text-muted">Điền thông tin và xác nhận đặt lịch</p>
+    </div>
     
-    <div class="row">
+    <div class="row g-4">
       <!-- Patient Form -->
       <div class="col-12 col-lg-8">
-        <app-patient-form
-          #patientForm
-          [formData]="patientFormData">
-        </app-patient-form>
-
-        <!-- Checkboxes -->
-        <div class="mt-4">
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="agreeTerms" checked>
-            <label class="form-check-label" for="agreeTerms">
-              Tôi đồng ý với điều khoản đặt lịch và chính sách bảo mật
-            </label>
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+          <div class="card-header border-0 p-4 text-white" style="background: linear-gradient(135deg, #A855F7, #9333EA);">
+            <h5 class="fw-bold mb-0">
+              <i class="bi bi-person me-2"></i>Thông tin bệnh nhân
+            </h5>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="sendNotification" checked>
-            <label class="form-check-label" for="sendNotification">
-              Gửi xác nhận qua SMS & Email
-            </label>
-          </div>
-        </div>
+          <div class="card-body p-4">
+            <app-patient-form
+              #patientForm
+              [formData]="patientFormData">
+            </app-patient-form>
 
-        <!-- Submit Button -->
-        <div class="mt-4">
-          <button type="button" class="btn btn-lg w-100 vtth-btn-primary" 
-                  [disabled]="!canProceedToNextStep()"
-                  (click)="submitAppointment()">
-            <i class="bi bi-check-circle me-2"></i>Hoàn tất đặt lịch
-          </button>
+            <!-- Checkboxes -->
+            <div class="mt-4 pt-4 border-top">
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="agreeTerms" checked>
+                <label class="form-check-label" for="agreeTerms">
+                  Tôi đồng ý với điều khoản đặt lịch và chính sách bảo mật
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sendNotification" checked>
+                <label class="form-check-label" for="sendNotification">
+                  Gửi xác nhận qua SMS & Email
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-4">
+              <button type="button" 
+                      class="btn btn-lg w-100 text-white rounded-pill shadow-lg fw-bold" 
+                      style="background: linear-gradient(135deg, #A855F7, #9333EA);"
+                      [disabled]="!canProceedToNextStep()"
+                      (click)="submitAppointment()">
+                <i class="bi bi-check-circle me-2"></i>Hoàn tất đặt lịch
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -144,16 +266,17 @@
   </div>
 
   <!-- Navigation Buttons (sticky on mobile) -->
-  <div class="navigation-buttons sticky-bottom d-md-none bg-white border-top p-3">
+  <div class="navigation-buttons sticky-bottom d-md-none bg-white border-top p-3 shadow-lg">
     <div class="d-flex gap-2">
-      <button class="btn flex-grow-1" 
-              [class.vtth-btn-primary]="currentStep > 1"
-              [class.btn-secondary]="currentStep === 1"
+      <button class="btn flex-grow-1 rounded-pill" 
               [disabled]="currentStep === 1"
+              [style.background]="currentStep > 1 ? 'linear-gradient(135deg, #F59E0B, #F97316)' : '#e2e8f0'"
+              [style.color]="currentStep > 1 ? 'white' : '#64748b'"
               (click)="previousStep()">
         <i class="bi bi-arrow-left me-2"></i>Quay lại
       </button>
-      <button class="btn flex-grow-1 vtth-btn-primary"
+      <button class="btn flex-grow-1 rounded-pill text-white"
+              style="background: linear-gradient(135deg, #A855F7, #9333EA);"
               [disabled]="!canProceedToNextStep() || currentStep === 3"
               (click)="nextStep()">
         Tiếp tục<i class="bi bi-arrow-right ms-2"></i>
@@ -162,18 +285,19 @@
   </div>
 
   <!-- Desktop Navigation -->
-  <div class="navigation-buttons-desktop d-none d-md-flex justify-content-between mt-4">
-    <button class="btn" 
-            [class.vtth-btn-primary]="currentStep > 1"
-            [class.btn-secondary]="currentStep === 1"
+  <div class="navigation-buttons-desktop d-none d-md-flex justify-content-between mt-5 pt-4 border-top">
+    <button class="btn rounded-pill px-4" 
             [disabled]="currentStep === 1"
+            [style.background]="currentStep > 1 ? 'linear-gradient(135deg, #F59E0B, #F97316)' : '#e2e8f0'"
+            [style.color]="currentStep > 1 ? 'white' : '#64748b'"
             (click)="previousStep()">
-      <i class="bi bi-arrow-left me-2"></i>Quay lại
+      <i class="bi bi-arrow-left me-2"></i>Quay lại bước trước
     </button>
-    <button class="btn vtth-btn-primary"
+    <button class="btn rounded-pill px-5 text-white shadow"
+            style="background: linear-gradient(135deg, #A855F7, #9333EA);"
             [disabled]="!canProceedToNextStep() || currentStep === 3"
             (click)="nextStep()">
-      Tiếp tục<i class="bi bi-arrow-right ms-2"></i>
+      Tiếp tục bước tiếp<i class="bi bi-arrow-right ms-2"></i>
     </button>
   </div>
 </div>
@@ -182,19 +306,23 @@
 <div class="modal fade" [class.show]="showSuccessModal" [style.display]="showSuccessModal ? 'block' : 'none'" 
      tabindex="-1" *ngIf="showSuccessModal">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title text-success">
+    <div class="modal-content rounded-4 overflow-hidden border-0 shadow-lg">
+      <div class="modal-header border-0 text-white" style="background: linear-gradient(135deg, #10B981, #059669);">
+        <h5 class="modal-title fw-bold">
           <i class="bi bi-check-circle-fill me-2"></i>Đặt lịch thành công!
         </h5>
-        <button type="button" class="btn-close" (click)="closeSuccessModal()"></button>
+        <button type="button" class="btn-close btn-close-white" (click)="closeSuccessModal()"></button>
       </div>
-      <div class="modal-body text-center">
+      <div class="modal-body text-center p-5">
         <div *ngIf="appointmentResponse">
-          <p class="mb-3">Mã đặt lịch của bạn:</p>
-          <h4 class="text-primary mb-4">{{ appointmentResponse.appointmentCode }}</h4>
+          <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-4" 
+               style="width: 80px; height: 80px; background: linear-gradient(135deg, #10B981, #059669);">
+            <i class="bi bi-check-lg text-white display-4"></i>
+          </div>
+          <p class="mb-2 text-muted">Mã đặt lịch của bạn:</p>
+          <h3 class="fw-bold mb-4" style="color: #10B981;">{{ appointmentResponse.appointmentCode }}</h3>
           
-          <div class="qr-code mb-4">
+          <div class="qr-code mb-4 p-4 rounded-4 d-inline-block" style="background: #f8fafc;">
             <img [src]="appointmentResponse.qrCode" alt="QR Code" class="img-fluid vtth-maxw-200">
           </div>
 
@@ -203,17 +331,21 @@
           </p>
 
           <div class="d-flex gap-2 justify-content-center flex-wrap">
-            <button class="btn vtth-btn-primary" (click)="downloadPDF()">
-              <i class="bi bi-download me-2"></i>Tải phiếu đặt lịch PDF
+            <button class="btn rounded-pill px-4 text-white" 
+                    style="background: linear-gradient(135deg, #10B981, #059669);" 
+                    (click)="downloadPDF()">
+              <i class="bi bi-download me-2"></i>Tải PDF
             </button>
-            <button class="btn vtth-btn-secondary" (click)="addToCalendar()">
+            <button class="btn rounded-pill px-4 text-white" 
+                    style="background: linear-gradient(135deg, #4A90E2, #6366F1);" 
+                    (click)="addToCalendar()">
               <i class="bi bi-calendar-plus me-2"></i>Thêm vào lịch
             </button>
           </div>
         </div>
       </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" (click)="closeSuccessModal()">Đóng</button>
+      <div class="modal-footer border-0 justify-content-center pb-4">
+        <button type="button" class="btn btn-secondary rounded-pill px-4" (click)="closeSuccessModal()">Đóng</button>
       </div>
     </div>
   </div>
@@ -223,13 +355,13 @@
 <!-- Toast Container -->
 <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
   <div *ngFor="let toast of toastService.getToasts()" 
-       class="toast show" 
+       class="toast show rounded-pill shadow-lg" 
        [class.bg-success]="toast.type === 'success'"
        [class.bg-danger]="toast.type === 'error'"
        [class.bg-info]="toast.type === 'info'"
        [class.bg-warning]="toast.type === 'warning'"
        role="alert">
-    <div class="toast-body text-white">
+    <div class="toast-body text-white py-3 px-4">
       {{ toast.message }}
     </div>
   </div>

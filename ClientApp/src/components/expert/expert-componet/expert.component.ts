@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 interface Expert {
   id: number;
@@ -25,9 +26,16 @@ type SpecialtyFilter = string | "all";
   templateUrl: './expert.component.html',
   styleUrls: ['./expert.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, RouterModule]
 })
 export class ExpertComponent implements OnInit {
+  stats = [
+    { icon: 'bi-person-badge', value: '200+', label: 'Bác sĩ & Chuyên gia', color: '#10B981' },
+    { icon: 'bi-briefcase', value: '15+', label: 'Năm kinh nghiệm TB', color: '#2FA4A9' },
+    { icon: 'bi-star-fill', value: '4.9', label: 'Đánh giá trung bình', color: '#4A90E2' },
+    { icon: 'bi-hospital', value: '30+', label: 'Chuyên khoa', color: '#6366F1' }
+  ];
+
   experts: Expert[] = [
     {
       id: 1,
