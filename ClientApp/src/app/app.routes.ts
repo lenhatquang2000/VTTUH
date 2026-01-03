@@ -19,6 +19,8 @@ import { VaccinationComponent } from '../components/vaccination/vaccination-comp
 import { VaccineStatusComponent } from '../components/vaccination/vaccine-status/vaccine-status.component';
 import { VaccinationProcessComponent } from '../components/vaccination/vaccination-process/vaccination-process.component';
 import { VaccinationScheduleComponent } from '../components/vaccination/vaccination-schedule/vaccination-schedule.component';
+import { RecruitmentComponent } from '../components/recruitment/recruitment-component/recruitment.component';
+import { InvoiceComponent } from '../components/invoice/invoice-component/invoice.component';
 
 export const routes: Routes = [
     {
@@ -149,6 +151,22 @@ export const routes: Routes = [
             { path: 'tinh-hinh-vaccin', component: VaccineStatusComponent, data: { name: 'vaccine-status', title: 'Tình hình Vaccin' } },
             { path: 'quy-trinh', component: VaccinationProcessComponent, data: { name: 'vaccination-process', title: 'Quy trình tiêm chủng' } },
             { path: 'lich-tiem', component: VaccinationScheduleComponent, data: { name: 'vaccination-schedule', title: 'Lịch tiêm chủng' } }
+        ]
+    },
+    {
+        path: 'recruitment',
+        component: MainLayoutComponent,
+        data: { name: 'recruitment-layout' },
+        children: [
+            { path: '', component: RecruitmentComponent, data: { name: 'recruitment', title: 'Tuyển dụng' } }
+        ]
+    },
+    {
+        path: 'invoice',
+        component: MainLayoutComponent,
+        data: { name: 'invoice-layout' },
+        children: [
+            { path: '', component: InvoiceComponent, data: { name: 'invoice', title: 'Tra cứu hóa đơn điện tử' } }
         ]
     }
 ];

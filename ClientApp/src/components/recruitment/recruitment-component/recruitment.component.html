@@ -1,0 +1,290 @@
+<!-- Hero Section with Purple/Pink Gradient -->
+<section class="position-relative overflow-hidden" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%); min-height: 420px;">
+  <!-- Decorative Elements -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="opacity: 0.08;">
+    <div class="position-absolute" style="top: 8%; left: 5%; font-size: 10rem; color: white;">
+      <i class="bi bi-briefcase-fill"></i>
+    </div>
+    <div class="position-absolute" style="top: 20%; right: 10%; font-size: 6rem; color: white;">
+      <i class="bi bi-people-fill"></i>
+    </div>
+    <div class="position-absolute" style="bottom: 25%; left: 20%; font-size: 5rem; color: white;">
+      <i class="bi bi-person-badge-fill"></i>
+    </div>
+    <div class="position-absolute" style="bottom: 15%; right: 8%; font-size: 7rem; color: white;">
+      <i class="bi bi-star-fill"></i>
+    </div>
+  </div>
+  
+  <div class="container position-relative py-5">
+    <div class="row align-items-center py-4 py-lg-5">
+      <div class="col-lg-8 mx-auto text-center text-white">
+        <div class="mb-4">
+          <span class="badge bg-white text-dark px-4 py-2 rounded-pill fs-6 shadow-sm">
+            <i class="bi bi-rocket-takeoff-fill me-2 text-primary"></i>
+            Cơ hội nghề nghiệp
+          </span>
+        </div>
+        <h1 class="display-4 fw-bold mb-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.25);">
+          Gia nhập đội ngũ VTTUH
+        </h1>
+        <p class="lead mb-4 opacity-90" style="font-size: 1.3rem;">
+          Xây dựng sự nghiệp y tế - Cống hiến cho cộng đồng
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="#jobs" class="btn btn-light btn-lg px-5 rounded-pill shadow-lg fw-bold">
+            <i class="bi bi-search me-2"></i>Xem vị trí tuyển dụng
+          </a>
+          <a href="#process" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+            <i class="bi bi-info-circle me-2"></i>Quy trình ứng tuyển
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Wave Divider -->
+  <div class="position-absolute bottom-0 start-0 w-100">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width: 100%; height: 80px;">
+      <path d="M0 120L48 110C96 100 192 80 288 70C384 60 480 60 576 65C672 70 768 80 864 85C960 90 1056 90 1152 85C1248 80 1344 70 1392 65L1440 60V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-4">
+      <div *ngFor="let stat of stats" class="col-6 col-md-3">
+        <div class="text-center p-4 rounded-4 h-100 service-card-hover" style="background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%); cursor: default;">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 shadow-sm" 
+               [style.background]="'linear-gradient(135deg, ' + stat.color + ', ' + stat.color + 'cc)'"
+               style="width: 70px; height: 70px;">
+            <i [class]="'bi ' + stat.icon + ' text-white'" style="font-size: 1.8rem;"></i>
+          </div>
+          <h3 class="fw-bold mb-1" [style.color]="stat.color">{{ stat.value }}</h3>
+          <p class="text-muted small mb-0">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-5" style="background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge px-3 py-2 rounded-pill mb-3 text-white" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+        <i class="bi bi-gift me-2"></i>Phúc lợi
+      </span>
+      <h2 class="fw-bold" style="color: #6366F1;">Tại sao chọn VTTUH?</h2>
+      <p class="text-muted">Chúng tôi cam kết mang đến môi trường làm việc tốt nhất</p>
+    </div>
+    
+    <div class="row g-4">
+      <div *ngFor="let benefit of benefits" class="col-12 col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 p-4 service-card-hover">
+          <div class="d-flex align-items-start gap-3">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
+                 style="width: 60px; height: 60px; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+              <i [class]="'bi ' + benefit.icon + ' text-white'" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold mb-2" style="color: #6366F1;">{{ benefit.title }}</h5>
+              <p class="text-muted mb-0 small">{{ benefit.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Job Listings Section -->
+<section id="jobs" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge px-3 py-2 rounded-pill mb-3 text-white" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
+        <i class="bi bi-briefcase me-2"></i>Tuyển dụng
+      </span>
+      <h2 class="fw-bold" style="color: #8B5CF6;">Vị trí đang tuyển</h2>
+      <p class="text-muted">Tìm kiếm cơ hội nghề nghiệp phù hợp với bạn</p>
+    </div>
+    
+    <div class="row g-4">
+      <div *ngFor="let job of jobPositions" class="col-12 col-lg-6">
+        <div class="card border-0 shadow-lg h-100 rounded-4 overflow-hidden service-card-hover"
+             (click)="selectJob(job)"
+             [class.ring-primary]="selectedJob?.id === job.id"
+             style="cursor: pointer; transition: all 0.3s ease;">
+          
+          <div class="card-header border-0 p-4 d-flex justify-content-between align-items-start"
+               [style.background]="job.isHot ? 'linear-gradient(135deg, #EC4899 0%, #F472B6 100%)' : 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)'">
+            <div class="text-white">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <h5 class="fw-bold mb-0">{{ job.title }}</h5>
+                <span *ngIf="job.isHot" class="badge bg-warning text-dark rounded-pill">
+                  <i class="bi bi-fire me-1"></i>Hot
+                </span>
+              </div>
+              <p class="mb-0 opacity-90 small">
+                <i class="bi bi-building me-1"></i>{{ job.department }}
+              </p>
+            </div>
+            <span class="badge rounded-pill" [ngClass]="getTypeClass(job.type)">
+              {{ getTypeLabel(job.type) }}
+            </span>
+          </div>
+          
+          <div class="card-body p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 text-muted small">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>{{ job.location }}</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 text-muted small">
+                  <i class="bi bi-cash-stack"></i>
+                  <span>{{ job.salary }}</span>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="d-flex align-items-center gap-2 text-muted small">
+                  <i class="bi bi-calendar3"></i>
+                  <span>Hạn nộp: {{ job.deadline }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <h6 class="fw-bold small mb-2" style="color: #6366F1;">Yêu cầu:</h6>
+              <ul class="list-unstyled mb-0">
+                <li *ngFor="let req of job.requirements" class="small text-muted mb-1">
+                  <i class="bi bi-check-circle-fill me-2 text-success"></i>{{ req }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Expanded Section -->
+          <div *ngIf="selectedJob?.id === job.id" class="card-footer bg-light border-0 p-4">
+            <div class="d-flex flex-wrap gap-2">
+              <a href="mailto:tuyendung@vttuh.vn?subject=Ứng tuyển: {{ job.title }}" 
+                 class="btn rounded-pill flex-grow-1 text-white"
+                 style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">
+                <i class="bi bi-envelope me-2"></i>Gửi CV qua Email
+              </a>
+              <a href="tel:02933953888" 
+                 class="btn btn-outline-secondary rounded-pill flex-grow-1">
+                <i class="bi bi-telephone me-2"></i>Liên hệ HR
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recruitment Process Section -->
+<section id="process" class="py-5" style="background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge px-3 py-2 rounded-pill mb-3 text-white" style="background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);">
+        <i class="bi bi-arrow-right-circle me-2"></i>Quy trình
+      </span>
+      <h2 class="fw-bold" style="color: #A855F7;">Quy trình tuyển dụng</h2>
+      <p class="text-muted">5 bước đơn giản để gia nhập đội ngũ VTTUH</p>
+    </div>
+    
+    <div class="row g-4 justify-content-center">
+      <div *ngFor="let step of recruitmentProcess; let i = index" class="col-12 col-md-6 col-lg">
+        <div class="card border-0 shadow-lg h-100 rounded-4 text-center p-4 service-card-hover position-relative overflow-visible">
+          <!-- Step Number -->
+          <div class="position-absolute top-0 start-50 translate-middle">
+            <div class="rounded-circle shadow text-white fw-bold d-flex align-items-center justify-content-center"
+                 style="width: 50px; height: 50px; background: linear-gradient(135deg, #A855F7, #EC4899);">
+              {{ step.step }}
+            </div>
+          </div>
+          
+          <div class="pt-4">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-circle mx-auto mb-3"
+                 style="width: 70px; height: 70px; background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);">
+              <i [class]="'bi ' + step.icon" style="font-size: 1.8rem; color: #A855F7;"></i>
+            </div>
+            <h5 class="fw-bold mb-2" style="color: #A855F7;">{{ step.title }}</h5>
+            <p class="text-muted small mb-0">{{ step.description }}</p>
+          </div>
+          
+          <!-- Arrow (except last) -->
+          <div *ngIf="i < recruitmentProcess.length - 1" 
+               class="position-absolute top-50 end-0 translate-middle-y d-none d-lg-block"
+               style="right: -30px !important; z-index: 10;">
+            <i class="bi bi-arrow-right fs-3" style="color: #A855F7;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 text-white mb-4 mb-lg-0">
+        <h3 class="fw-bold mb-2">
+          <i class="bi bi-envelope-paper me-2"></i>Gửi hồ sơ ứng tuyển
+        </h3>
+        <p class="mb-0 opacity-90">Email: <strong>tuyendung@vttuh.vn</strong> | Hotline: <strong>0293 3953 888</strong></p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="mailto:tuyendung@vttuh.vn" class="btn btn-light btn-lg rounded-pill px-5 shadow-lg fw-bold">
+          <i class="bi bi-send me-2"></i>Gửi CV ngay
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 text-center p-4">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mx-auto mb-3"
+               style="width: 70px; height: 70px; background: linear-gradient(135deg, #6366F1, #8B5CF6);">
+            <i class="bi bi-envelope text-white" style="font-size: 1.8rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2" style="color: #6366F1;">Email</h5>
+          <p class="text-muted mb-0">tuyendung@vttuh.vn</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 text-center p-4">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mx-auto mb-3"
+               style="width: 70px; height: 70px; background: linear-gradient(135deg, #8B5CF6, #A855F7);">
+            <i class="bi bi-telephone text-white" style="font-size: 1.8rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2" style="color: #8B5CF6;">Hotline</h5>
+          <p class="text-muted mb-0">0293 3953 888</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4 text-center p-4">
+          <div class="d-inline-flex align-items-center justify-content-center rounded-circle mx-auto mb-3"
+               style="width: 70px; height: 70px; background: linear-gradient(135deg, #A855F7, #EC4899);">
+            <i class="bi bi-geo-alt text-white" style="font-size: 1.8rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2" style="color: #A855F7;">Địa chỉ</h5>
+          <p class="text-muted mb-0">Phường An Khánh, Quận Ninh Kiều, TP. Cần Thơ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
